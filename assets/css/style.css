@@ -1,0 +1,78 @@
+.main-container {
+	background-image: url("../images/greenChevron.jpg");
+	background-repeat: repeat;
+	height: 1000px;
+	z-index: 0;
+}
+
+header {
+	background-color: black;
+	color: #49fb35;
+	width: 400px;
+
+}
+
+h1 {
+	color: #49fb35;
+	font-size: 56px;
+	font-weight: bolder;
+	text-shadow: 2px 2px white;
+	font-family: Tahoma;
+	text-align: center;
+}
+
+#startImage {
+	position: relative;
+    top: 30px;
+    left: 180px;
+    width: 350px;
+    height: auto;
+    display: block;
+}
+.container {
+	position: relative;
+	top: 60px;
+	left: 285px;
+	align-self: center;
+	background-color: white;
+	border: 2px solid black;
+	width: 700px;
+	height: 320px;
+	z-index: 3;
+	padding: 20px;
+}
+
+#countdownHolder {
+	text-align: center;
+	font-family: Courier;
+	font-size: 32px;
+	color: red;
+}
+
+#questionHolder {
+	text-align: center;
+	font-size: 30px;
+	color: #49fb35;
+	text-shadow: 1px 1px black;
+}
+
+#startButton {
+	position: relative;
+    background-color: black;
+    color: #FF00FF;
+    top: 61px;
+    left: 263px;
+    font-size: 25px;
+    display: block;
+}
+
+.choices {
+	width: 200px;
+	position: relative;
+	background-color: black;
+	color: #FF00FF;
+	/*top: 100px;*/
+	left: 245px;
+	font-size: 25px;
+	display: block;
+}
