@@ -7,11 +7,11 @@ $(document).ready( function() {
 					'This TV shows female namesake could be described as moody or emo and rocked the same killer boots in every episode.',
 					'This famous couple had their own show, one episode of which featured some serious confusion over chicken and tuna.', 
 					'A reality TV show that ended up revolving around house drama and hookups.', 
-					'q5', 
-					'q6', 
-					'q7', 
-					'q8', 
-					'q9'],
+					'On this show, teens lose control of their dating life briefly, letting mom and dad step in to try to see some positive change.', 
+					'This show follows a famous rocker along with his wife, son, and daughter.', 
+					'Who was the original host of Say What? Karaoke?', 
+					'Ashton Kutcher and friends were able to put their pranking prowess to good use in this show.', 
+					'Who knew claymation would find its way to MTV? The creators of this show.'],
 		//answers for questions[0]
 		q0Answers: ['<button class="choices incorrect">Bob Hope</button>',
 					'<button class="choices incorrect">Fred Durst</button>', 
@@ -38,43 +38,44 @@ $(document).ready( function() {
 					'<button class="choices incorrect">Road Rules</button>', 
 					'<button class="choices incorrect">Teen Mom</button>'],
 		//answers for questions[5]
-		q5Answers: ['<button class="choices incorrect">asdflkj</button>',
-					'<button class="choices incorrect">sdglkj</button>', 
-					'<button class="choices" id="correct">asd;fljk</button>', 
-					'<button class="choices incorrect">asd;flkj</button>'],
+		q5Answers: ['<button class="choices incorrect">Teen Mom</button>',
+					'<button class="choices incorrect">The Osbournes</button>', 
+					'<button class="choices" id="correct">Parental Control</button>', 
+					'<button class="choices incorrect">Real Life</button>'],
 		//answers for questions[6]
-		q6Answers: ['<button class="choices incorrect">asdflkj</button>',
-					'<button class="choices incorrect">adslgkj</button>', 
-					'<button class="choices" id="correct">asd;fljk</button>', 
-					'<button class="choices incorrect">asdflkj</button>'],
+		q6Answers: ['<button class="choices incorrect">Pimp My Ride</button>',
+					'<button class="choices incorrect">Punkd</button>', 
+					'<button class="choices" id="correct">The Osbournes</button>', 
+					'<button class="choices incorrect">Real World</button>'],
 		//answers for questions[7]
-		q7Answers: ['<button class="choices incorrect">asdflkj</button>',
-					'<button class="choices incorrect">aslgkj</button>', 
-					'<button class="choices incorrect">asd;lfjk</button>', 
-					'<button class="choices" id="correct">asdfljk</button>'],
+		q7Answers: ['<button class="choices incorrect">Joey McIntyre</button>',
+					'<button class="choices incorrect">Katie Holmes</button>', 
+					'<button class="choices incorrect">Teck Holmes</button>', 
+					'<button class="choices" id="correct">Dave Holmes</button>'],
 		//answers for questions[8]
-		q8Answers: ['<button class="choices" id="correct">asdf;ljk</button>',
-					'<button class="choices incorrect">asd;lfk</button>', 
-					'<button class="choices incorrect">asdf;lk</button>', 
-					'<button class="choices incorrect">sadf;ljk</button>'],
+		q8Answers: ['<button class="choices" id="correct">Punkd</button>',
+					'<button class="choices incorrect">Road Rules</button>', 
+					'<button class="choices incorrect">Parental Control</button>', 
+					'<button class="choices incorrect">Celebrity Deathmatch</button>'],
 		//answers for questions[9]
-		q9Answers: ['<button class="choices incorrect">asdlfkj</button>',
-					'<button class="choices incorrect">asdl;fjk</button>', 
-					'<button class="choices incorrect">asdfl;kj</button>', 
-					'<button class="choices" id="correct">as;dlfkj</button>'],
+		q9Answers: ['<button class="choices incorrect">Gumby</button>',
+					'<button class="choices incorrect">Clarissa Explains it All</button>', 
+					'<button class="choices incorrect">Daria</button>', 
+					'<button class="choices" id="correct">Celebrity Deathmatch</button>'],
 		
 		//question and answer display, correct/incorrect answer tally screen
 		questionSelector: function() {
 			
 			var correctCount = 0;
-			$("#correct").on("click", function() {
-				correctCount++;
-			});
-
+			
 			var correctChoice = function() {
-				$("#correct").on("click", stopCountdown);
-				$("#correct").on("click", correctScreen);
-				console.log("Correct!");
+				$("#correct").on("click", function() {
+					stopCountdown();
+					correctCount++;
+					console.log("Plus1");
+					correctScreen();
+					console.log("Correct!");
+				})
 			};
 
 			var correctScreen = function() {
@@ -83,18 +84,20 @@ $(document).ready( function() {
 				$("#answerHolder").hide();
 				$("#correctTracker").html("Correct answers: " + correctCount).show();
 				$("#incorrectTracker").html("Incorrect answers: " + incorrectCount).show();
+				$("#scorePicHolder").html("<img src='assets/images/monkeyCelebrate.gif' width='200px' style='position:relative; left:150px;'>").show();
 				setTimeout(nextQuestion, 8000);
 			};
 
 			var incorrectCount = 0;
-			$(".incorrect").on("click", function() {
-				incorrectCount++;
-			});
 
 			var incorrectChoice = function() {
-				$(".incorrect").on("click", stopCountdown);
-				$(".incorrect").on("click", incorrectScreen);
-				console.log("Incorrect!");
+				$(".incorrect").on("click", function() {
+					stopCountdown();
+					incorrectCount++;
+					console.log("Minus1");
+					incorrectScreen();
+					console.log("Incorrect!");
+				})
 			};
 
 			var incorrectScreen = function() {
@@ -103,6 +106,7 @@ $(document).ready( function() {
 				$("#answerHolder").hide();
 				$("#correctTracker").html("Correct answers: " + correctCount).show();
 				$("#incorrectTracker").html("Incorrect answers: " + incorrectCount).show();
+				$("#scorePicHolder").html("<img src='assets/images/leoCry.gif' style='position:relative; left:150px;'>").show();
 				setTimeout(nextQuestion, 8000);
 			};
 
@@ -115,6 +119,7 @@ $(document).ready( function() {
 				$("#correctTracker").hide();
 				$("#incorrectTracker").hide();
 				$("#rightOrWrong").hide();
+				$("#scorePicHolder").hide();
 			};
 
 			$("#startButton").hide();
@@ -246,6 +251,8 @@ $(document).ready( function() {
     			console.log("time is zero");
 
     			alert("Time is up!");
+
+    			nextQuestion();
     			
     		};
 		};
