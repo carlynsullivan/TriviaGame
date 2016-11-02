@@ -252,7 +252,7 @@ $(document).ready( function() {
 
     			alert("Time is up!");
 
-    			nextQuestion();
+    			// nextQuestion();
     			
     		};
 		};
