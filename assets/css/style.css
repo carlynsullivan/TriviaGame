@@ -77,7 +77,9 @@ h1 {
 	display: block;
 }
 
-.rightOrWrong {
+#rightOrWrong,
+#incorrectTracker,
+#correctTracker {
 	position: relative;
 	left: 150px;
 	color: blue;
