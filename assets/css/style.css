@@ -76,3 +76,10 @@ h1 {
 	font-size: 25px;
 	display: block;
 }
+
+.rightOrWrong {
+	position: relative;
+	left: 150px;
+	color: blue;
+	font-size: 32px;
+}
